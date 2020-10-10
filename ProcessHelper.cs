@@ -6,8 +6,10 @@ namespace KillProcess
 {
     public static class ProcessHelper
     {
-        public static void KillProcess(string processName = "VBCSCompiler")
+        public static void KillProcess(string processName)
         {
+            if (string.IsNullOrEmpty(processName))
+                processName = "VBCSCompiler";
             foreach (var process in Process.GetProcessesByName(processName))
             {
                 try
